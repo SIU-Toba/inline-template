@@ -1,0 +1,18 @@
+{
+    "name": "siu-toba/inline-template-html",
+    "description": "",
+    "require": {
+        "php": ">=5.4",
+        "twig/twig": "~1.24.0"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    
+    "autoload": {
+      "psr-4": { "": "src" }
+    },
+
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
