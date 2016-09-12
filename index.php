@@ -8,7 +8,7 @@ $navigation = array(
     array('href' => 'www.google.com', 'caption' => 'googlgge'),
 );
 
-echo \SIU\InlineTemplate\InlineTemplateBuilder::generateHtml(
+echo \SIU\InlineTemplate\Builder::generateHtml(
     array('a_variable' => 'Sergio', 'navigation' => $navigation),
     array('debug' => true)
 );
