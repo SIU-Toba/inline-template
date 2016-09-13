@@ -52,7 +52,7 @@ class Builder
 
             //TODO: mandar a log esto? $exc->getTraceAsString();
 
-            throw new \Exception('Ocurrió un error al procesar el template');
+            throw new \Exception('Ocurrió un error al procesar el template: '.$exc->getMessage());
         }
     }
 
