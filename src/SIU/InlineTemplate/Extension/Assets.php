@@ -16,6 +16,12 @@ use Twig_SimpleFunction;
 class Assets extends Twig_Extension
 {
     protected $functions = array();
+    protected $baseDir;
+
+    public function __construct($baseDir)
+    {
+        $this->baseDir = $baseDir;
+    }
 
     public function getName()
     {
@@ -76,7 +82,9 @@ class Assets extends Twig_Extension
 
             $file = base64_encode(file_get_contents($path));
 
-            return "<img src=\"data:image/jpeg;base64,$file\"/>";
+            $mime = image_type_to_mime_type(exif_imagetype($path));
+
+            return "<img src=\"data:$mime;base64,$file\"/>";
         }, array('is_safe' => array('html')));
 
         return $function;

@@ -1,5 +1,5 @@
 {
-    "name": "siu-toba/inline-template-html",
+    "name": "siu-toba/inline-template",
     "description": "",
     "require": {
         "php": ">=5.4",

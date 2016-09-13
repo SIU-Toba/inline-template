@@ -2,6 +2,8 @@
 <html>
     <head>
         <title>Mi sitio web</title>
+        
+        {{ inline_css('example.css') }}
     </head>
     <body>
         <ul id="navigation">
@@ -9,11 +11,10 @@
             <li><a href="{{ item.href }}">{{ item.caption }}</a></li>
         {% endfor %}
         </ul>
-        {{ inline_img('main.jpeg') }}
-        {{ inline_js('main.js') }}
-        {{ inline_css('main.css') }}
+        {{ inline_img('example.png') }}        
+        <h1>Texto que pasamos en 'template_variable':</h1>
+        <p>{{ template_variable }}</p>
         
-        <h1>Test-My Webpage</h1>
-        {{ a_variable }}
-    </body>
+        {{ inline_js('example.js') }}
+    </body>    
 </html>

@@ -3,12 +3,15 @@ require_once 'vendor/autoload.php';
 
 
 $navigation = [
-    array('href' => 'www.google.com', 'caption' => 'googlddde'),
-    array('href' => 'www.google.com', 'caption' => 'googlffe'),
-    array('href' => 'www.google.com', 'caption' => 'googlgge'),
-   ];
+    array('href' => 'http://www.google.com', 'caption' => 'Buscar en Google'),
+];
+
+$parametros = [
+    'template_variable' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.',
+    'navigation' => $navigation
+];
 
 echo \SIU\InlineTemplate\Builder::generateHtml(
-    array('a_variable' => 'Sergio', 'navigation' => $navigation),
+    $parametros,
     array('debug' => true)
 );
