@@ -2,6 +2,7 @@
 
 namespace SIU\InlineTemplate\Extension;
 
+use Monolog\Logger;
 use Twig_Extension;
 use Twig_SimpleFunction;
 
@@ -18,8 +19,10 @@ class Assets extends Twig_Extension
     protected $functions = array();
     protected $baseDir;
 
-    public function __construct($baseDir)
+    public function __construct($baseDir, Logger $logger)
     {
+        $this->logger = $logger;
+
         $this->baseDir = $baseDir;
     }
 
@@ -43,7 +46,9 @@ class Assets extends Twig_Extension
             $path = realpath($this->baseDir).'/js/'.$js;
 
             if (!is_readable($path)) {
-                throw new \Exception("No se puede leer '$path'");
+                $message = "No se puede leer '$path'";
+                $this->logger->error($message);
+                throw new \Exception($message);
             }
 
             $file = file_get_contents($path);
@@ -60,7 +65,9 @@ class Assets extends Twig_Extension
             $path = realpath($this->baseDir).'/css/'.$js;
 
             if (!is_readable($path)) {
-                throw new \Exception("No se puede leer '$path'");
+                $message = "No se puede leer '$path'";
+                $this->logger->error($message);
+                throw new \Exception($message);
             }
 
             $file = file_get_contents($path);
@@ -77,7 +84,9 @@ class Assets extends Twig_Extension
             $path = realpath($this->baseDir).'/img/'.$js;
 
             if (!is_readable($path)) {
-                throw new \Exception("No se puede leer '$path'");
+                $message = "No se puede leer '$path'";
+                $this->logger->error($message);
+                throw new \Exception($message);
             }
 
             $file = base64_encode(file_get_contents($path));
