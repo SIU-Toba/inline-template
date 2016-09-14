@@ -1,5 +1,5 @@
 window.onload = function(e){
     setTimeout(function(){
-        alert("ping localhost......fail!");
+        console.log("Esto es un texto de prueba desde el onload de la page.");
     }, 2000);
 }
